@@ -1,0 +1,13 @@
+{
+  "name": "yiyu-watch-ai",
+  "version": "1.0.26",
+  "description": "呓语环间AI - 小米 Vela 手表 AI 助手",
+  "private": true,
+  "scripts": {
+    "build": "node pack.js"
+  },
+  "dependencies": {
+    "@aiot-toolkit/aiotpack": "2.0.5",
+    "jszip": "^3.10.1"
+  }
+}
