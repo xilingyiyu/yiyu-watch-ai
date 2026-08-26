@@ -1,0 +1,71 @@
+{
+  "package": "com.yiyun.aiwatch",
+  "name": "呓语环间AI",
+  "icon": "/common/images/图标.png",
+  "versionName": "1.0.3",
+  "versionCode": 31,
+  "minPlatformVersion": 1200,
+  "simulationVersion": "default",
+  "deviceTypeList": [
+    "watch"
+  ],
+  "features": [
+    {
+      "name": "system.router"
+    },
+    {
+      "name": "system.fetch"
+    },
+    {
+      "name": "system.storage"
+    },
+    {
+      "name": "system.prompt"
+    },
+    {
+      "name": "system.vibrator"
+    },
+    {
+      "name": "system.device"
+    },
+    {
+      "name": "system.interconnect"
+    }
+  ],
+  "config": {
+    "logLevel": "log",
+    "designWidth": 432
+  },
+  "router": {
+    "entry": "pages/Home",
+    "pages": {
+      "pages/Home": {
+        "component": "home"
+      },
+      "pages/History": {
+        "component": "history"
+      },
+      "pages/Settings": {
+        "component": "settings"
+      },
+      "pages/About": {
+        "component": "about"
+      },
+      "pages/Input": {
+        "component": "editor"
+      },
+      "pages/Think": {
+        "component": "think"
+      }
+    }
+  },
+  "minAPILevel": 1,
+  "packageInfo": {
+    "toolkit": "2.0.5",
+    "timeStamp": "2026-08-17T03:33:13.352Z",
+    "node": "v24.1.0",
+    "platform": "linux",
+    "arch": "x64",
+    "component": true
+  }
+}
