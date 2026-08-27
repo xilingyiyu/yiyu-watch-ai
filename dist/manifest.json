@@ -3,7 +3,7 @@
   "name": "呓语环间AI",
   "icon": "/common/images/图标.png",
   "versionName": "1.0.3",
-  "versionCode": 31,
+  "versionCode": 42,
   "minPlatformVersion": 1200,
   "simulationVersion": "default",
   "deviceTypeList": [
