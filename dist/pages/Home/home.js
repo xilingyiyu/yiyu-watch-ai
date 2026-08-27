@@ -1276,6 +1276,7 @@ if (isRespUrl) {
                         exports.default = void 0;
                         var _system = _interopRequireDefault($app_require$1("@app-module/system.router"));
                         var _system2 = _interopRequireDefault($app_require$1("@app-module/system.prompt"));
+                        var __storage = _interopRequireDefault($app_require$1("@app-module/system.storage"));
                         var _store = _interopRequireDefault(__webpack_require__("./src/common/scripts/store.js"));
                         var _util = _interopRequireDefault(__webpack_require__("./src/common/scripts/util.js"));
                         var _ai = _interopRequireDefault(__webpack_require__("./src/common/scripts/ai.js"));
@@ -1442,6 +1443,13 @@ if (isRespUrl) {
                                     role: 'system',
                                     content: s.systemPrompt
                                 });
+                                var __now = new Date();
+                                var __pad = function(n) { return n < 10 ? '0' + n : '' + n; };
+                                var __timeStr = __now.getFullYear() + '-' + __pad(__now.getMonth() + 1) + '-' + __pad(__now.getDate()) + ' ' + __pad(__now.getHours()) + ':' + __pad(__now.getMinutes());
+                                reqMessages.push({
+                                    role: 'system',
+                                    content: '当前设备时间：' + __timeStr + '。回答时间、日期、新闻等实时类问题时，以这个时间为准。'
+                                });
                                 for(var i = 0; i < this.messages.length; i++){
                                     var m = this.messages[i];
                                     if ('user' === m.role || 'assistant' === m.role) reqMessages.push({
@@ -1515,6 +1523,23 @@ if (isRespUrl) {
                                     conv.messages = conv.messages.slice(conv.messages.length - 20);
                                 }
                                 _store.default.upsertConversation(conv, null);
+                                
+                                __storage.default.get({ key: 'ai_conversations', success: function(data) {
+                                    try {
+                                        var __list = data ? JSON.parse(data) : [];
+                                        var __ex = false;
+                                        for (var __i = 0; __i < __list.length; __i++) if (__list[__i].id === conv.id) { __list[__i] = conv; __ex = true; break; }
+                                        if (!__ex) __list.push(conv);
+                                        if (__list.length > 6) __list = __list.slice(__list.length - 6);
+                                        __storage.default.set({ key: 'ai_conversations', value: JSON.stringify(__list),
+                                            fail: function() {
+                                                setTimeout(function() {
+                                                    __storage.default.set({ key: 'ai_conversations', value: JSON.stringify(__list) });
+                                                }, 2000);
+                                            }
+                                        });
+                                    } catch (e) {}
+                                } });
                             },
                             scrollEnd: function() {
                                 this.scrollTopVal = 99999 + ((this._stCount || 0) + 1);
