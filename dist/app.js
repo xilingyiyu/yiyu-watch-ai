@@ -560,7 +560,7 @@ if (isRespUrl) {
                     },
                     "./src/manifest.json" (module) {
                         "use strict";
-                        module.exports = JSON.parse('{"package":"com.yiyun.aiwatch","name":"呓语环间AI","icon":"/common/images/图标.png","versionName":"1.0.3","versionCode":31,"minPlatformVersion":1200,"simulationVersion":"default","deviceTypeList":["watch"],"features":[{"name":"system.router"},{"name":"system.fetch"},{"name":"system.storage"},{"name":"system.prompt"},{"name":"system.vibrator"},{"name":"system.device"},{"name":"system.interconnect"}],"config":{"logLevel":"log","designWidth":336},"router":{"entry":"pages/Home","pages":{"pages/Home":{"component":"home"},"pages/History":{"component":"history"},"pages/Settings":{"component":"settings"},"pages/About":{"component":"about"},"pages/Input":{"component":"editor"},"pages/Think":{"component":"think"}}}}');
+                        module.exports = JSON.parse('{"package":"com.yiyun.aiwatch","name":"呓语环间AI","icon":"/common/images/图标.png","versionName":"1.0.3","versionCode":42,"minPlatformVersion":1200,"simulationVersion":"default","deviceTypeList":["watch"],"features":[{"name":"system.router"},{"name":"system.fetch"},{"name":"system.storage"},{"name":"system.prompt"},{"name":"system.vibrator"},{"name":"system.device"},{"name":"system.interconnect"}],"config":{"logLevel":"log","designWidth":336},"router":{"entry":"pages/Home","pages":{"pages/Home":{"component":"home"},"pages/History":{"component":"history"},"pages/Settings":{"component":"settings"},"pages/About":{"component":"about"},"pages/Input":{"component":"editor"},"pages/Think":{"component":"think"}}}}');
                     }
                 };
                 var __webpack_module_cache__ = {};
